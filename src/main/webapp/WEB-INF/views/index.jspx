@@ -1,0 +1,61 @@
+<div xmlns:spring="http://www.springframework.org/tags"
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core" version="2.0">
+	<style>
+		div{font-size:11pt;clear:both;}
+		ul{list-style:none;}
+		ul li{width:40px;float:left;}
+	</style>
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<spring:message var="app_name" code="application_name"
+		htmlEscape="false" />
+	<spring:message var="title" code="welcome_titlepane"
+		arguments="${app_name}" htmlEscape="false" />
+	<util:panel id="title" title="${title}">
+		<h2>
+			<spring:message code="welcome_h3" arguments="${title}" />
+		</h2>
+		<p>
+			<!-- 有疑惑？就<a href="${pageContext.request.contextPath}/ask">提问</a>吧！ -->
+			希望您能在这里找到答案。
+		</p>
+		<!-- <c:out value="${page.number}"></c:out> -->
+		<c:forEach items="${page.content}" var="q">
+			<div>
+				<div id="authorInfo">AuthorInfo</div>
+				<div id="questionContent">
+					<c:out  value="${q.content}"></c:out>	
+				</div>
+				<div>
+					<ul>
+						<li class="up">
+							顶
+						</li>
+						<li class="down">
+							拍
+						</li>
+						<li class="answers">
+							<a href="${pageContext.request.contextPath}/questions/answers/${q.id}">回答</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</c:forEach>
+		<div>
+			<hr/>
+		</div>
+		<div style="font-size:12pt;height:20px;">
+			<c:if test="${page.number ge 1}">
+				<a href="${pageContext.request.contextPath}?start=${page.number - 1}"></a>上一页
+			</c:if>
+			<c:if test="${page.number+1 lt page.totalPages}">
+				<a href="${pageContext.request.contextPath}?start=${page.number + 1}"></a>下一页
+			</c:if>
+			<span style="float:right;">
+				<c:out value="当前第${page.number + 1}页/共${page.totalPages}页"></c:out>
+			</span>
+		</div>
+	</util:panel>
+</div>

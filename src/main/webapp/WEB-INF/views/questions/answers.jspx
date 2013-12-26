@@ -1,0 +1,50 @@
+<div xmlns:spring="http://www.springframework.org/tags" 
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" 
+	xmlns:jsp="http://java.sun.com/JSP/Page" 
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<style>
+		div{font-size:11pt;clear:both;}
+		ul{list-style:none;}
+		ul li{width:40px;float:left;}
+	</style>
+	<hr/>
+	<h3>疑惑解答</h3>
+	<div id="question">
+		<div>
+			<c:out value="${question.content}"></c:out>
+		</div>
+		<div>
+			<c:out value="${question.id}/${question.createTime}"></c:out>
+		</div>
+	</div>
+	<div id="answers">
+		<c:forEach items="${question.answerList}" var="answer">
+			<div>
+				<div id="authorInfo">AuthorInfo</div>
+				<div id="answerContent">
+					<c:out  value="${answer.content}"></c:out>	
+				</div>
+				<div>
+					<ul>
+						<li class="up">
+							顶
+						</li>
+						<li class="down">
+							拍
+						</li>
+					</ul>
+				</div>
+			</div>
+		</c:forEach>
+	</div>
+	<div id="answerAction">
+		<form action="${pageContext.request.contextPath}/questions/answer" method="post">
+		<input name="id" value="${question.id}" type="hidden"/>
+		<textarea id="content" name="content" rows="5" cols="50">写下您的答案吧</textarea>
+		<br/>	
+		<input type="submit" value="回答"/>
+	</form>
+	</div>
+</div>

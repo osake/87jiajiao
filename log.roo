@@ -1,0 +1,9 @@
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-03 12:00:12
+project --topLevelPackage com.zjy --projectName 87jiajiao
+jpa setup --provider HIBERNATE --database MYSQL --databaseName 87jiajiao --userName root --password root
+web mvc setup
+perform eclipse
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2013-12-05 09:16:33
+// [failed] entity jpa --class ~.entity.User --activeRecord false --identifierField id --identifierType Long --table users
+entity jpa --class ~.domain.Account --activeRecord false --identifierField id --identifierType Long --table Account
+repository jpa --interface ~.repository.AccountRepository --entity ~.domain.Account
