@@ -54,6 +54,8 @@
                 <prop key=".NoSuchRequestHandlingMethodException">resourceNotFound</prop>
                 <prop key=".TypeMismatchException">resourceNotFound</prop>
                 <prop key=".MissingServletRequestParameterException">resourceNotFound</prop>
+                <prop key="shiro.authc.UnauthorizedException">/unauthorized</prop>
+		<prop key="shiro.authc.UnauthenticationException">/unauthenticated</prop>
             </props>
         </property>
     </bean>
