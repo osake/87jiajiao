@@ -350,6 +350,14 @@
 			<version>${querydsl.version}</version>
 		</dependency>
 		<!-- end of Querydsl -->
+		<!-- Tomcat7-->
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-servlet-api</artifactId>
+			<version>7.0.30</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- end of Tomcat7-->
     </dependencies>
     <build>
         <plugins>
@@ -490,10 +498,10 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>tomcat-maven-plugin</artifactId>
-                <version>1.1</version>
-            </plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.0</version>
+			</plugin>
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
