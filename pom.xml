@@ -526,6 +526,13 @@
 							<logOnlyOnError>true</logOnlyOnError>
 							<outputDirectory>target/generated-sources</outputDirectory>
 							<processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor>
+							<!--
+								If you are using Querydsl JPA with Spring Roo you can replace com.mysema.query.apt.jpa.JPAAnnotationProcessor with com.mysema.query.apt.roo.RooAnnotationProcessor which will handle @RooJpaEntity and @RooJpaActiveRecord annotated classes instead of @Entity annotated classes.
+								APT based code generation doesn't work well with AspectJ IDTs.
+							-->
+							<!--
+								<processor>com.mysema.query.apt.roo.RooAnnotationProcessor</processor>
+							-->
 						</configuration>
 					</execution>
 				</executions>
